@@ -17,9 +17,19 @@ module.exports = {
 
                     newTodo
                         .save()
-                        .then(saveTodo => {
+                        .then(savedTodo => {
+                        
+                            user.todos.push(savedTodo);
 
-                            resolve(saveTodo)
+                            user.save()
+                                .then(user => {
+                                    resolve(savedTodo)
+                                })
+                                .catch(err => {
+                                    reject(err)
+                                })
+
+
 
                         })
                         .catch(err => {
