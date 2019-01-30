@@ -20,7 +20,7 @@ module.exports = {
                                         id: user._id,
                                         email: user.email
                                     }
-
+                                    
                                     jwt.sign(payload, process.env.SECRET_KEY, {
                                         expiresIn: 3600
                                     }, (err, token) => {
