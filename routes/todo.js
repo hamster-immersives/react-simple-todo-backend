@@ -7,6 +7,19 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/getalltodos/:id', function(req, res) {
+    
+    todoController
+        .getTodosById(req.params.id)
+        .then(result => {
+            res.json(result)
+        })
+        .catch(err => {
+            res.json(err)
+        })
+
+});
+
 router.post('/createtodo', function(req, res) {
     todoController
         .createTodo(req.body)
