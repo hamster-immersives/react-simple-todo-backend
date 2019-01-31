@@ -10,7 +10,7 @@ module.exports = {
             User.findById({_id: id}, 'todos')
                 .populate('todos', '-user_id -__v')
                 .exec( (err, user) => {
-                    console.log(user)
+                    //console.log(user)
                     if (err) {
                         reject(err)
                     } else {
